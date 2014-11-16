@@ -8,3 +8,12 @@ output: html_document
 activity <- read.csv("activity.csv")
 ```
    
+###What is mean total number of steps taken per day
+```{r, echo=TRUE}
+library(dplyr)
+actByDate <- group_by(activity, date)
+meanByDate <- summarise(actByDate, meanSteps = mean(steps , na.rm=TRUE))
+meansOnly <- meanByDate[!is.nan(meanByDate$meanSteps),]
+mean(meansOnly$meanSteps)
+
+```
