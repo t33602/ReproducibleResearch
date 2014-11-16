@@ -12,8 +12,13 @@ activity <- read.csv("activity.csv")
 ```{r, echo=TRUE}
 library(dplyr)
 actByDate <- group_by(activity, date)
-meanByDate <- summarise(actByDate, meanSteps = mean(steps , na.rm=TRUE))
+meanByDate <- summarise(actByDate, meanSteps = sum(steps , na.rm=TRUE))
 meansOnly <- meanByDate[!is.nan(meanByDate$meanSteps),]
 mean(meansOnly$meanSteps)
+```
 
+###What is the median number of steps taken per day
+```{r, echo=TRUE}
+ByDate <- summarise(actByDate, medianSteps = sum(steps , na.rm=TRUE))
+median(ByDate$medianSteps)
 ```
