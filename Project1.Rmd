@@ -1,0 +1,10 @@
+---
+title: "Peer Assesment 1"
+output: html_document
+---
+
+###Loading and preprocessing the data
+```{r, echo=TRUE}
+activity <- read.csv("activity.csv")
+```
+   
